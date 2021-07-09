@@ -12,6 +12,10 @@ module Monoid = Monoid
 (** {1 Functor hierarchy} *)
 
 module Functor = Functor
+module Contravariant = Contravariant
+module Alt = Alt
+module Applicative = Applicative
+module Alternative = Alternative
 
 (** {1 Bifunctor hierarchy} *)
 

@@ -17,7 +17,7 @@ module For (F : Preface_specs.FUNCTOR) = struct
   ;;
 
   let preserve_composition_of_morphisms () =
-    let open Preface_core.Fun in
+    let open Preface_core.Fun.Infix in
     make "Preserve composition of morphisms"
       (Side.make "map (f % g)" (fun f g -> F.map (f % g)))
       (Side.make "(map f) % (map g)" (fun f g -> F.(map f % map g)))
