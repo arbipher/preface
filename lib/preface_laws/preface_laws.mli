@@ -4,9 +4,20 @@
     ({!module:Law}) for a concrete representation of an abstraction. They are
     notably used in tests.*)
 
+(** {1 Monoid hierarchy} *)
+
+module Semigroup = Semigroup
+module Monoid = Monoid
+
 (** {1 Functor hierarchy} *)
 
 module Functor = Functor
+
+(** {1 Bifunctor hierarchy} *)
+
+(** {1 Profunctor hierarchy} *)
+
+(** {1 Arrow hierarchy} *)
 
 (** {1 Descriptions of laws}
 
