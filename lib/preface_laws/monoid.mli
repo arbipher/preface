@@ -6,10 +6,10 @@ module type LAWS = sig
   include Semigroup.LAWS with module Semigroup := Monoid
   (** @closed *)
 
-  val left_identity : unit -> (Monoid.t, Monoid.t) Law.t
+  val monoid_left_identity : unit -> (Monoid.t, Monoid.t) Law.t
   (** Generates the law: [neutral <|> x = x]. *)
 
-  val right_identity : unit -> (Monoid.t, Monoid.t) Law.t
+  val monoid_right_identity : unit -> (Monoid.t, Monoid.t) Law.t
   (** Generates the law: [x <|> neutral = x]. *)
 end
 

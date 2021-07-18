@@ -3,11 +3,11 @@
 module type LAWS = sig
   module Contravariant : Preface_specs.CONTRAVARIANT
 
-  val preserve_identity_morphisms :
+  val contravariant_preserve_identity_morphisms :
     unit -> ('a Contravariant.t, 'a Contravariant.t) Law.t
   (** Generates the law: [contramap id = id]. *)
 
-  val preserve_composition_of_morphisms :
+  val contravariant_preserve_composition_of_morphisms :
        unit
     -> ('a -> 'b, ('b -> 'c) -> 'c Contravariant.t -> 'a Contravariant.t) Law.t
   (** Generates the law: [contramap (g % f) = (contramap f) % (contramap g)]. *)

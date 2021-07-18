@@ -6,32 +6,33 @@ module type LAWS = sig
   include Functor.LAWS with module Functor := Applicative
   (** @closed *)
 
-  val identity : unit -> ('a Applicative.t, 'a Applicative.t) Law.t
+  val applicative_identity : unit -> ('a Applicative.t, 'a Applicative.t) Law.t
   (** Generates the law: [pure id <*> x = x]. *)
 
-  val homomorphism : unit -> ('a -> 'b, 'a -> 'b Applicative.t) Law.t
+  val applicative_homomorphism :
+    unit -> ('a -> 'b, 'a -> 'b Applicative.t) Law.t
   (** Generates the law: [pure f <*> pure x = pure f x]. *)
 
-  val interchange :
+  val applicative_interchange :
     unit -> (('a -> 'b) Applicative.t, 'a -> 'b Applicative.t) Law.t
   (** Generates the law: [f <*> pure x = pure ((|>) x) <*> f]. *)
 
-  val composition :
+  val applicative_composition :
        unit
     -> ( ('a -> 'b) Applicative.t
        , ('c -> 'a) Applicative.t -> 'c Applicative.t -> 'b Applicative.t )
        Law.t
   (** Generates the law: [pure ( % ) <*> u <*> v <*> w = u <*> (v <*> w)]. *)
 
-  val map_is_pure_and_apply :
+  val applicative_map_is_pure_and_apply :
     unit -> ('a -> 'b, 'a Applicative.t -> 'b Applicative.t) Law.t
   (** Generates the law: [map f x = pure f <*> x]. *)
 
-  val ignore_left :
+  val applicative_ignore_left :
     unit -> (unit Applicative.t, 'a Applicative.t -> 'a Applicative.t) Law.t
   (** Generates the law: [u *> v = (id <$ u) <*> v]. *)
 
-  val ignore_right :
+  val applicative_ignore_right :
     unit -> ('a Applicative.t, unit Applicative.t -> 'a Applicative.t) Law.t
   (** Generates the law: [u <* v = lift2 const u v]. *)
 end

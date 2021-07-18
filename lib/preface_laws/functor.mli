@@ -3,10 +3,11 @@
 module type LAWS = sig
   module Functor : Preface_specs.FUNCTOR
 
-  val preserve_identity_morphisms : unit -> ('a Functor.t, 'a Functor.t) Law.t
+  val functor_preserve_identity_morphisms :
+    unit -> ('a Functor.t, 'a Functor.t) Law.t
   (** Generates the law: [map id = id]. *)
 
-  val preserve_composition_of_morphisms :
+  val functor_preserve_composition_of_morphisms :
     unit -> ('a -> 'b, ('c -> 'a) -> 'c Functor.t -> 'b Functor.t) Law.t
   (** Generates the law: [map (f % g) = (map f) % (map g)]. *)
 end

@@ -6,11 +6,11 @@ module type LAWS = sig
   include Functor.LAWS with module Functor := Alt
   (** @closed *)
 
-  val associative_combine :
+  val alt_associative_combine :
     unit -> ('a Alt.t, 'a Alt.t -> 'a Alt.t -> 'a Alt.t) Law.t
   (** Generates the law: [(a <|> b) <|> c = a <|> (b <|> c)]. *)
 
-  val left_distributive_map_over_combine :
+  val alt_left_distributive_map_over_combine :
     unit -> ('a -> 'b, 'a Alt.t -> 'a Alt.t -> 'b Alt.t) Law.t
   (** Generates the law: [f <$> (a <|> b) = (f <$> a) <|> (f <$> b)]. *)
 end

@@ -3,7 +3,7 @@
 module type LAWS = sig
   module Semigroup : Preface_specs.SEMIGROUP
 
-  val associative_combine :
+  val semigroup_associative_combine :
     unit -> (Semigroup.t, Semigroup.t -> Semigroup.t -> Semigroup.t) Law.t
   (** Generates the law: [(a <|> b) <|> c = a <|> (b <|> c)]. *)
 end
